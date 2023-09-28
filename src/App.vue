@@ -50,4 +50,3 @@ import { EnvelopeIcon } from "@heroicons/vue/24/solid";
   </div>
 </template>
 
-<style scoped></style>
