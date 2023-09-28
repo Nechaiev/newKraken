@@ -1,7 +1,6 @@
 <template>
   <component :is="as" :disabled="disabled" :class="buttonClass">
     <my-loader v-if="loading" />
-
     <component
       :is="leftIcon"
       :class="['w-5 h-5 mr-2', loading && 'invisible']"
