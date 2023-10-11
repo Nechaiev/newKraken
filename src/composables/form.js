@@ -22,6 +22,7 @@ const useForm = (initialValue = {}, rawSchema) => {
       errors.value[name] = "";
     } catch (error) {
       errors.value[name] = error.errors[0];
+      console.log({ ...error }, name, form.value);
     }
   };
   // const validate = (name) => {

@@ -10,7 +10,7 @@
     class="max-w-md mx-auto my-4 p-4 bg-white rounded-lg shadow-lg"
   >
     <div class="mb-4">
-      <custom-input name="login" class="mb-2" :error="errors.login"/>
+      <custom-input name="login" class="mb-2" />
     </div>
     <div class="mb-4">
       <custom-input type="password" name="password" class="mb-2"/>
@@ -33,7 +33,7 @@ const { form, errors, checkIsValid } = useForm({
   login: "",
   password: "",
 }, object({
-    login: string().min(5).max(10).email(),
+    login: string().min(5).max(20).email(),
     password: string().min(5)
 }));
 
