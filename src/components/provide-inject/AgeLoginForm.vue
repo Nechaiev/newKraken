@@ -21,7 +21,8 @@
 </template>
 
 <script setup>
-import CustomInput from "@/components/privide-inject/CustomInput.vue";
+
+import CustomInput from "@/components/provide-inject/CustomInput.vue";
 import { useForm } from "@/composables/form.js";
 import { object, string, date } from "yup";
 

@@ -1,36 +1,34 @@
 <template>
-    <wrapper-custom-input :helperText="helperText" :error="error" :label="label">
-        <input
-            :type="type"
-            :placeholder="placeholder"
-            class="w-full px-4 py-2 rounded-md border-transparent placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            @input="onSetValue"
-            :value="value"
-        />
-    </wrapper-custom-input>
+  <wrapper-custom-input :helperText="helperText" :error="error" :label="label">
+    <input
+      :type="type"
+      :placeholder="placeholder"
+      class="w-full px-4 py-2 rounded-md border-transparent placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      @input="onSetValue"
+      :value="value"
+    />
+  </wrapper-custom-input>
 </template>
 
 <script setup>
-
-import WrapperCustomInput from "@/components/privide-inject/WrapperCustomInput.vue";
+import WrapperCustomInput from "@/components/provide-inject/WrapperCustomInput.vue";
 import { useField } from "@/composables/form.js";
 
-defineEmits(['update:modelValue'])
+defineEmits(["update:modelValue"]);
 
 const props = defineProps({
-    placeholder: String,
-    label: String,
-    helperText: String,
-    modelValue: String,
-    type: {
-        type: String,
-        default: "text",
-    },
-    name: String,
-})
+  placeholder: String,
+  label: String,
+  helperText: String,
+  modelValue: String,
+  type: {
+    type: String,
+    default: "text",
+  },
+  name: String,
+});
 
-const {value, error, onSetValue} = useField(props);
-
+const { value, error, onSetValue } = useField(props);
 </script>
 
 //old version
@@ -46,7 +44,7 @@ const {value, error, onSetValue} = useField(props);
 <!--</template>-->
 
 <!--<script setup>-->
-<!--import WrapperCustomInput from "@/components/privide-inject/WrapperCustomInput.vue";-->
+<!--import WrapperCustomInput from "@/components/provide-inject/WrapperCustomInput.vue";-->
 <!--import { computed, watch, inject } from "vue";-->
 
 <!--const props = defineProps({-->

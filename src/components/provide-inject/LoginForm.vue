@@ -2,7 +2,7 @@
   <pre>
     {{ form }}
   </pre>
-    <pre>
+  <pre>
     {{ errors }}
   </pre>
   <form
@@ -13,7 +13,7 @@
       <custom-input name="login" class="mb-2" />
     </div>
     <div class="mb-4">
-      <custom-input type="password" name="password" class="mb-2"/>
+      <custom-input type="password" name="password" class="mb-2" />
     </div>
     <button
       class="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -25,23 +25,25 @@
 
 <script setup>
 import { watch } from "vue";
-import CustomInput from "@/components/privide-inject/CustomInput.vue";
+import CustomInput from "@/components/provide-inject/CustomInput.vue";
 import { useForm } from "@/composables/form.js";
-import { object, string } from 'yup';
+import { object, string } from "yup";
 
-const { form, errors, checkIsValid } = useForm({
-  login: "",
-  password: "",
-}, object({
+const { form, errors, checkIsValid } = useForm(
+  {
+    login: "",
+    password: "",
+  },
+  object({
     login: string().min(5).max(20).email(),
-    password: string().min(5)
-}));
+    password: string().min(5),
+  }),
+);
 
 const onSubmit = async () => {
-
-    if (await checkIsValid()) {
-         console.log(form.value);
-         }
+  if (await checkIsValid()) {
+    console.log(form.value);
+  }
   // const validationErrors = validator();
   //
   // Object.keys(validationErrors).forEach((field) => {
@@ -109,7 +111,7 @@ const clearError = (fieldName) => {
 
 <!--<script setup>-->
 <!--import { provide, ref } from "vue";-->
-<!--import CustomInput from "@/components/privide-inject/CustomInput.vue";-->
+<!--import CustomInput from "@/components/provide-inject/CustomInput.vue";-->
 
 <!--const form = ref({-->
 <!--  login: "",-->

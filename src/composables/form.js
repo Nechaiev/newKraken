@@ -18,7 +18,8 @@ const useForm = (initialValue = {}, rawSchema) => {
       return;
     }
     try {
-      await schema.validate({ [name]: form.value[name] });
+      const fieldSchema = schema.fields[name];
+      await fieldSchema.validate(form.value[name]);
       errors.value[name] = "";
     } catch (error) {
       errors.value[name] = error.errors[0];
