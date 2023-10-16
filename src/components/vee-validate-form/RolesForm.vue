@@ -5,6 +5,7 @@
   >
     <label>Select your role:</label>
     <controlled-field
+        variant="outlined"
       name="person"
       :label="key"
       v-for="(value, key) in PERSONS"
@@ -69,7 +70,6 @@
 import * as yup from "yup";
 import "yup-phone";
 import { useForm } from "vee-validate";
-import ValidationField from "@/components/vee-validate-form/ValidationField.vue";
 import { ref } from "vue";
 import ControlledField from "@/components/vee-validate-form/ControlledField.vue";
 import TextField from "@/components/vee-validate-form/TextField.vue";
