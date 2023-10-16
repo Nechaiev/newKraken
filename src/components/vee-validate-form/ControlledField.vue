@@ -2,7 +2,11 @@
   <div
     class="input-wrapper relative max-w-screen-md w-full mx-auto p-4 mb-4 border-2 rounded-[4px]"
   >
-    <validation-field :label="label" :errors="errors">
+    <field-wrapper
+      :variant="wrapperVariant"
+      :label="label"
+      :labelPosition="labelPosition"
+    >
       <input
         :name="name"
         :type="type"
@@ -10,12 +14,12 @@
         :value="value"
         class="m-4"
       />
-    </validation-field>
+    </field-wrapper>
   </div>
 </template>
 
 <script setup>
-import ValidationField from "@/components/vee-validate-form/ValidationField.vue";
+import FieldWrapper from "@/components/vee-validate-form/FieldWrapper.vue";
 import { useField } from "vee-validate";
 
 const props = defineProps({
@@ -32,11 +36,22 @@ const props = defineProps({
   },
   value: null,
   label: String,
+  variant: String,
+  labelPosition: {
+    type: String,
+    default: "top",
+  },
 });
 const { value: innerValue, errors } = useField(() => props.name, undefined, {
   type: props.type,
   checkedValue: () => props.value,
 });
+
+const wrapperVariant =
+  props.variant === "controlledField" ? null : props.variant;
+
+const labelPosition =
+    props.labelPosition === "controlledField" ? "right" : props.labelPosition;
 </script>
 
 <style scoped></style>
