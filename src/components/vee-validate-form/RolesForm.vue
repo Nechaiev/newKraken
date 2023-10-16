@@ -20,6 +20,7 @@
     <text-field
       name="phoneNumber"
       type="phone"
+      label="Phone"
       placeholder="(999) 99-99-999"
       v-if="values.person === PERSONS.Teacher"
       mask="'+38 (000)-00-00-000'"
@@ -32,16 +33,16 @@
       v-if="values.person === PERSONS.Teacher"
       mask="'SS 000000'"
     />
-    <text-field
+    <password-field
       :type="showPassword ? 'text' : 'password'"
       name="password"
       label="password"
       placeholder="Your password"
     />
-    <text-field
+    <password-field
       :type="showPassword ? 'text' : 'password'"
       name="confirmPassword"
-      label="confirmPassword"
+      label="Confirm Password"
       placeholder="Confirm password"
     />
     <div class="flex items-center my-2">
@@ -72,6 +73,7 @@ import ValidationField from "@/components/vee-validate-form/ValidationField.vue"
 import { ref } from "vue";
 import ControlledField from "@/components/vee-validate-form/ControlledField.vue";
 import TextField from "@/components/vee-validate-form/TextField.vue";
+import PasswordField from "@/components/vee-validate-form/PasswordField.vue";
 
 const showPassword = ref(false);
 

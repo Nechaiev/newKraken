@@ -2,8 +2,14 @@
   <div
     class="input-wrapper relative max-w-screen-md w-full mx-auto p-4 mb-4 border-2 rounded-[4px]"
   >
-    <validation-field :label="label" :errors="errors" >
-      <input :name="name" :type="type" v-model="innerValue" :value="value" class="m-4"/>
+    <validation-field :label="label" :errors="errors">
+      <input
+        :name="name"
+        :type="type"
+        v-model="innerValue"
+        :value="value"
+        class="m-4"
+      />
     </validation-field>
   </div>
 </template>
