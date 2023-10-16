@@ -5,5 +5,5 @@ import VueMask from '@devindex/vue-mask'; // <-- ADD THIS LINE
 
 const app = createApp(App)
 
-app.mount('#app');
 app.use(VueMask);  // <-- ADD THIS LINE
+app.mount('#app');
