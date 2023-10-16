@@ -4,42 +4,41 @@
     class="flex flex-col items-center border-2 px-6 py-10 max-w-xl mx-auto mb-6 rounded-[4px]"
   >
     <label>Select your role:</label>
-    <validation-field
-      type="radio"
+    <controlled-field
       name="person"
       :label="key"
       v-for="(value, key) in PERSONS"
       :value="value"
       :key="value"
     />
-    <validation-field
+    <text-field
       type="email"
       name="email"
       label="Email"
       placeholder="Your email"
     />
-    <validation-field
+    <text-field
       name="phoneNumber"
       type="phone"
       placeholder="(999) 99-99-999"
       v-if="values.person === PERSONS.Teacher"
-      v-mask="'+38 (000)-00-00-000'"
+      mask="'+38 (000)-00-00-000'"
     />
-    <validation-field
+    <text-field
       type="text"
       name="series_passport"
       label="Series passport"
       placeholder="AA 123456"
       v-if="values.person === PERSONS.Teacher"
-      v-mask="'SS 000000'"
+      mask="'SS 000000'"
     />
-    <validation-field
+    <text-field
       :type="showPassword ? 'text' : 'password'"
       name="password"
       label="password"
       placeholder="Your password"
     />
-    <validation-field
+    <text-field
       :type="showPassword ? 'text' : 'password'"
       name="confirmPassword"
       label="confirmPassword"
@@ -71,6 +70,8 @@ import "yup-phone";
 import { useForm } from "vee-validate";
 import ValidationField from "@/components/vee-validate-form/ValidationField.vue";
 import { ref } from "vue";
+import ControlledField from "@/components/vee-validate-form/ControlledField.vue";
+import TextField from "@/components/vee-validate-form/TextField.vue";
 
 const showPassword = ref(false);
 
@@ -85,6 +86,7 @@ const initialValue = {
 };
 
 const { handleSubmit, values, errors } = useForm({
+  initialValues: initialValue,
   validationSchema: yup.object({
     email: yup.string().required().email(),
 
