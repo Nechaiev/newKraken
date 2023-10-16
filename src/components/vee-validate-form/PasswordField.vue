@@ -1,5 +1,5 @@
 <template>
-  <validation-field :label="label" :errors="errors">
+  <field-wrapper :label="label" :errors="errors">
     <input
       :name="name"
       :type="type"
@@ -7,11 +7,11 @@
       :class="fieldClasses"
       v-model="innerValue"
     />
-  </validation-field>
+  </field-wrapper>
 </template>
 
 <script setup>
-import ValidationField from "@/components/vee-validate-form/ValidationField.vue";
+import FieldWrapper from "@/components/vee-validate-form/FieldWrapper.vue";
 import { useField } from "vee-validate";
 
 const props = defineProps({
