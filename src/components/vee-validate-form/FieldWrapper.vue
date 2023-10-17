@@ -58,7 +58,6 @@ const labelClass = computed(() => {
   return [
     "pointer-events-none",
     "bg-white",
-    "absolute",
     "left-3",
     {
       "top-0": props.labelPosition === "top",
