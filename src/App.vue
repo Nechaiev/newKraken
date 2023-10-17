@@ -1,10 +1,10 @@
-
 <template>
   <div class="container">
     <!--        <login-form/>-->
     <!--        <age-login-form/>-->
     <!--    <vee-validate />-->
-      <roles-form/>
+    <!--      <roles-form/>-->
+    <dynamic-components />
   </div>
 </template>
 
@@ -14,6 +14,7 @@ import AgeLoginForm from "@/components/provide-inject/AgeLoginForm.vue";
 import { ref } from "vue";
 import VeeValidate from "@/components/provide-inject/VeeValidate.vue";
 import RolesForm from "@/components/vee-validate-form/RolesForm.vue";
+import DynamicComponents from "@/components/vee-validate-form/DynamicComponents.vue";
 
 const input = ref("");
 </script>
