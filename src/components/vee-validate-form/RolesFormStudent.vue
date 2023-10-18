@@ -1,5 +1,5 @@
 <template>
-  <text-field name="login" label="login" placeholder="login" />
+
 </template>
 
 <script setup>
