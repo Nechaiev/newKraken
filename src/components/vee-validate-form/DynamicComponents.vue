@@ -1,6 +1,7 @@
 <template>
-  <div >
-    <div class="flex justify-center gap-4 mb-3">
+  <div>
+      <p>MAKE A CHOICE</p>
+    <div class="flex justify-center gap-4 m-10">
       <button
         class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
         v-for="(component, label) in tabs"
