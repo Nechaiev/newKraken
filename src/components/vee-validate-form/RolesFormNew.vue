@@ -65,8 +65,8 @@ import RolesFormStudent from "@/components/vee-validate-form/RolesFormStudent.vu
 const showPassword = ref(false);
 
 const PERSONS = {
-  Teacher: "33",
-  Student: "66",
+  Teacher: "Student",
+  Student: "Student",
 };
 
 const tabs = {
