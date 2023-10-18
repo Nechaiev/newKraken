@@ -4,7 +4,8 @@
     <!--        <age-login-form/>-->
     <!--    <vee-validate />-->
     <!--      <roles-form/>-->
-    <dynamic-components />
+    <!--    <dynamic-components />-->
+    <roles-form-new />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import { ref } from "vue";
 import VeeValidate from "@/components/provide-inject/VeeValidate.vue";
 import RolesForm from "@/components/vee-validate-form/RolesForm.vue";
 import DynamicComponents from "@/components/vee-validate-form/DynamicComponents.vue";
+import RolesFormNew from "@/components/vee-validate-form/RolesFormNew.vue";
 
 const input = ref("");
 </script>
