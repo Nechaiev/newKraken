@@ -5,7 +5,7 @@
     <!--    <vee-validate />-->
     <!--      <roles-form/>-->
     <!--    <dynamic-components />-->
-    <roles-form-fore-modal />
+    <roles-form-for-modal />
     <!--    <roles-form-new />-->
   </div>
 </template>
@@ -18,7 +18,7 @@ import VeeValidate from "@/components/provide-inject/VeeValidate.vue";
 import RolesForm from "@/components/vee-validate-form/RolesForm.vue";
 import DynamicComponents from "@/components/vee-validate-form/DynamicComponents.vue";
 import RolesFormNew from "@/components/vee-validate-form/RolesFormNew.vue";
-import RolesFormForeModal from "@/components/vee-validate-form/RolesFormForeModal.vue";
+import RolesFormForModal from "@/components/vee-validate-form/RolesFormForModal.vue";
 
 const input = ref("");
 </script>
