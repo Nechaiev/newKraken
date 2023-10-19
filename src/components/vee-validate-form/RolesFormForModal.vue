@@ -1,8 +1,14 @@
 <template>
   <div>
-    <custom-modal @confirm="submitForm" :values="values" />
+    <teleport to="body">
+      <custom-modal
+        :open-modal="openModal"
+        @confirm="submitForm"
+        @update:open-modal="onChangeModal"
+      />
+    </teleport>
     <form
-      @submit.prevent="openModal = true"
+      @submit="onSubmit"
       class="flex flex-col items-center border-2 px-6 py-10 max-w-xl mx-auto mb-6 rounded-[4px]"
     >
       <label>Select your role:</label>
@@ -44,7 +50,8 @@
       </div>
 
       <button
-        class="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        :disabled="loading"
+        class="w-full disabled:bg-gray-500 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         Submit
       </button>
@@ -83,7 +90,7 @@ const initialValue = {
   name: "",
 };
 
-const { handleSubmit, values, errors } = useForm({
+const { handleSubmit, values, errors, resetForm } = useForm({
   initialValues: initialValue,
   validationSchema: yup.object({
     email: yup.string().required().email(),
@@ -113,12 +120,22 @@ const activeFields = computed(() => {
 });
 
 const openModal = ref(false);
-
-const submitForm = (values) => {
+const loading = ref(false);
+const submitForm = async () => {
+  //values
+  loading.value = true;
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+  loading.value = false;
   console.log(JSON.stringify(values, null, 2));
+  resetForm();
+};
+const onChangeModal = (newVal) => {
+  openModal.value = newVal;
 };
 
-const onSubmit = handleSubmit((formValues) => {
-  openModal.value = true;
+const onSubmit = handleSubmit(() => {
+  onChangeModal(true);
 });
 </script>
