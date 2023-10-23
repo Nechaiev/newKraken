@@ -1,5 +1,12 @@
 <template>
   <div>
+    <label>Second input</label>
+    <input
+      type="text"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      class="border border-gray-600"
+    />
     <teleport to="body">
       <custom-modal
         :open-modal="openModal"
@@ -72,6 +79,13 @@ import PasswordField from "@/components/vee-validate-form/PasswordField.vue";
 import RolesFormTeacher from "@/components/vee-validate-form/RolesFormTeacher.vue";
 import RolesFormStudent from "@/components/vee-validate-form/RolesFormStudent.vue";
 import CustomModal from "@/components/CustomModal.vue";
+import randomGenerator from "@/utils/randomGenerator";
+
+defineProps({
+  modelValue: String,
+});
+
+const emit = defineEmits(["success", "error", "update:modelValue"]);
 
 const showPassword = ref(false);
 
@@ -122,14 +136,27 @@ const activeFields = computed(() => {
 const openModal = ref(false);
 const loading = ref(false);
 const submitForm = async () => {
-  //values
   loading.value = true;
-  await new Promise((resolve) => {
-    setTimeout(resolve, 2000);
-  });
-  loading.value = false;
-  console.log(JSON.stringify(values, null, 2));
-  resetForm();
+
+  try {
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (randomGenerator()) {
+          resolve();
+          return;
+        }
+        reject("myError");
+      }, 300);
+    });
+    emit("success");
+    resetForm();
+    console.log(JSON.stringify(values, null, 2));
+  } catch (error) {
+    emit("error");
+    console.log(error);
+  } finally {
+    loading.value = false;
+  }
 };
 const onChangeModal = (newVal) => {
   openModal.value = newVal;
